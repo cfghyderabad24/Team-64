@@ -105,7 +105,7 @@ const buyProduct = async (req, res) => {
         user.orders.push(order._id);
         await user.save();
 
-        res.status(201).send("Order placed successfully");
+        res.status(201).send({order});
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
@@ -147,7 +147,7 @@ const donateProduct = async (req, res) => {
         user.donations.push(donation._id);
         await user.save();
 
-        res.status(201).send("Donation placed successfully");
+        res.status(201).send({donation});
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
