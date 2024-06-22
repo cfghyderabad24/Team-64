@@ -1,0 +1,42 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin: 0 0 8px;
+}
+
+.card-price {
+  color: #888;
+  font-size: 1.2em;
+  margin: 0 0 16px;
+}
+
+.card-description {
+  font-size: 1em;
+  color: #333;
+}
+
+.products-cont {
+  display: flex;
+}
