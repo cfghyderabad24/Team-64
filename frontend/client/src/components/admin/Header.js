@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../../assets/mainlogo.jpg'
 import { Link ,Routes, Route, useNavigate } from 'react-router-dom'
 import AdminHome from './AdminHome'
 
