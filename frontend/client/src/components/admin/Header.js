@@ -14,7 +14,7 @@ export default function Header() {
     <div>
        <nav className="navbar sticky-top navbar-expand-lg navbar-dark">
             <div className="container">
-              <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s' style={{'width':'100px'}}></img>
+              {/* <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s' style={{'width':'100px'}}></img> */}
                 <a className="navbar-brand grow" href="/">Good Universe</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -59,7 +59,7 @@ export default function Header() {
                             
                         </li>
                         <li>
-                        <button className='' style={{'text-decoration':'none'}} onClick={handleLogOut}> Sign Out </button></li>
+                        <Link to="/" onClick={handleLogOut} className="nav-link p-4" style={{ textDecoration: 'none' }}>Sign Out</Link></li>
                            <li>
                            <Link to="/donors-page" style={{'text-decoration':'none'}}>Donors Page</Link></li>
                     </ul>

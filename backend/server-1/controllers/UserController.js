@@ -3,9 +3,15 @@ const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
 const Products = require('../models/Products');
+<<<<<<< HEAD
  const jwtSecret = process.env.JWT_SECRET;
 //const jwtSecret = "secret_token_123";
 const jwt = require('jsonwebtoken');
+=======
+const {jwtSecret} = process.env.JWT_SECRET;
+const jwt = require('jsonwebtoken');
+
+>>>>>>> fdda3ef1a12dc25f6573c5da9d9391128cd3a38e
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
 
 const createUser = async (req, res) => {
@@ -107,7 +113,7 @@ const buyProduct = async (req, res) => {
         user.orders.push(order._id);
         await user.save();
 
-        res.status(201).send("Order placed successfully");
+        res.status(201).send({order});
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
@@ -149,13 +155,115 @@ const donateProduct = async (req, res) => {
         user.donations.push(donation._id);
         await user.save();
 
-        res.status(201).send("Donation placed successfully");
+        res.status(201).send({donation});
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
     }
 };
 
+//displaying the total number of donations donar has done
+
+const getAllDonations = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        
+        jwt.verify(token, jwtSecret);
+
+        const decoded = jwtDecode(token);
+        const username = decoded.username;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        const donations = await Donations.find({ user: user._id });
+        res.status(200).send({ donations });
+    } catch (err) {
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+const getAllOrders = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        
+        jwt.verify(token, jwtSecret);
+
+        const decoded = jwtDecode(token);
+        const username = decoded.username;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        const orders = await Orders.find({ user: user._id });
+        res.status(200).send({ orders });
+
+    } catch (err) {
+
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+
+    }
+};
+
+//to get only one specif Donation details
+const donationDetails = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const donation = await Donations.findById(id);
+        if(!donation){
+            return res.status(404).send("Donation not found");
+        }
+        res.status(200).send({donation});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+//to get the specific order details for invoice
+
+const orderInvoice = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const order = await Orders.findById(id);
+        if(!order){
+            return res.status(404).send("Order not found");
+        }
+        res.status(200).send({order});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+//to get the specific donation details
+
+const donationInvoice = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const donation = await Donations.findById(id);
+        if(!donation){
+            return res.status(404).send("Donation not found");
+        }
+        res.status(200).send({donation});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};  
 
 
-module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct };
+
+module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct, getAllDonations, getAllOrders, donationDetails, orderInvoice, donationInvoice};

@@ -31,14 +31,13 @@ export default function UserLogin({ onLogin }) {
   };
 
   return (
-    <div className=''>
       <div className=''>
         <h1 className='text-center'>Login</h1>
         {error ? <h4 align="center">{error}</h4> : null}
         <div className="mt-2 containersignin" >
       <div className="row justify-content-center mt-3 mb-5">
-        <div className="column"  style={{'width':'500px'}}>
-          <div className=" box card shadow p-2 ">
+        <div className="" >
+          <div className=" box card shadow p-2 " style={{'width':'900px'}}>
             <hr />
             <div className="card-body">
               <form onSubmit={handleSubmit}>
@@ -83,7 +82,6 @@ export default function UserLogin({ onLogin }) {
             </div>
           </div>
         </div>
-      </div>
       </div>
       </div>
     </div>
