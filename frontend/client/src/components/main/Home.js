@@ -1,12 +1,14 @@
 import React from 'react'
 import './Home.css'
-import Carousal from './Carosal'
+import Carosal from './Carosal'
+import ruralimg from '../../assets/Rural-help.jpg'
+import pw1 from '../../assets/pw-1.jpg'
+import donor from '../../assets/donor.webp'
 export default function Home() {
   return (
-    <div>
-    <div className="service section-1">
-      <div className='Home-content'>
-        <div className='text-content'>
+    <div className="service " style={{'backgroundColor':'#030027'}}>
+      <div className='Home-content mt-0'>
+        <div className='text-content'  >
           <h1>Good Universe Integrates</h1>
           <div className='typing-wrapper'>
             <span>Gender Equality</span>
@@ -16,13 +18,13 @@ export default function Home() {
           <p>We ensure to make the world more livable, to make our places safer and more accessible to all genders, to make health a priority in our communities.</p>
           <button className='btn'><a href="#">Know More</a></button>
         </div>
-        <img src="/assets/Rural-help.jpg" alt="Our camp" />
+        <img src={ruralimg} alt="Our camp" />
       </div>
 
-      <div className="rule1">
+      <div className="rule1" style={{'backgroundColor':'white'}}>
         <div className="card1">
           <div className="image1">
-            <img src="\assets\image.png" alt="Volunteer" />
+            <img src={pw1} alt="Volunteer" />
           </div>
           <h5>Be a Volunteer</h5>
           <p>Volunteer with us, join our community, and be a gender-equal, climate-resilient ally!</p>
@@ -32,7 +34,7 @@ export default function Home() {
 
         <div className="card1">
           <div className="image1">
-            <img src="/assets/donor.webp" alt="Donor" />
+            <img  src={donor} alt="Donor" />
           </div>
           <h5>Be a Donor and Help the Community</h5>
           <p>Support our initiatives by donating and making a positive impact on our community.</p>
@@ -40,8 +42,8 @@ export default function Home() {
           <button className='btn'>Donate</button>
         </div>
 
-        <Carousal/>
-
+      
+        <Carosal/>
         <div className="card1">
           <h5> Biological Understanding</h5>
           <p>Menstrual education provides essential knowledge about the biological processes involved in menstruation. 
@@ -65,6 +67,6 @@ export default function Home() {
       </div>
     </div>
 
-    </div>
+
   )
 }

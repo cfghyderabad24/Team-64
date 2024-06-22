@@ -2,6 +2,7 @@ import React from 'react'
 import { Link ,Routes, Route, useNavigate } from 'react-router-dom'
 import UserHome from './UserHome'
 import DonorsMainPage from './DonorsMainPage'
+import BuyProducts from './BuyProducts'
 
 
 export default function Header() {
@@ -71,6 +72,8 @@ export default function Header() {
             <Route path="/" element={<UserHome/>} exact/>
             <Route path="/userhome" element={<UserHome/>} exact/>
             <Route path="/donors-page" element={<DonorsMainPage/>} exact/>
+            <Route path="/buyproducts" element={<BuyProducts/>} exact/>
+            <Route path="/buyproducts" element={<BuyProducts/>} exact/>
 
         </Routes>
         

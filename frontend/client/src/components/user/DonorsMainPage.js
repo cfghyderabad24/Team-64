@@ -1,6 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import DonateForChild from './DonateForChild';
+import DonateProducts from './DonateProducts';
+import BuyProducts from './BuyProducts';
+import { Route ,Routes} from 'react-router-dom';
 function DonorsMainPage() {
   return (
     <div className="container my-5">
@@ -13,7 +17,7 @@ function DonorsMainPage() {
           <div className="card shadow-sm">
             <div className="card-body">
               <button className="btn btn-primary btn-lg w-100">
-              <Link to="/buy-products" className='p-4 text-light' style={{'text-decoration':'none'}}>Buy Products</Link>
+              <Link to="/buyproducts" className='p-4 text-light' style={{'text-decoration':'none'}}>Buy Products</Link>
               </button>
             </div>
           </div>
@@ -31,14 +35,22 @@ function DonorsMainPage() {
           <div className="card shadow-sm">
             <div className="card-body">
               <button className="btn btn-warning btn-lg w-100">
-              <Link to="/donate-fr-child" className='p-4 text-light' style={{'text-decoration':'none'}}>Donate For A Child</Link>
+              <Link to="/donate-for-child" className='p-4 text-light' style={{'text-decoration':'none'}}>Donate For A Child</Link>
               </button>
             </div>
           </div>
         </div>
       </div>
+
+
+    <Routes>
+        <Route path="/donate-for-child" element={<DonateForChild/>} exact/>
+        <Route path="/donate-products" element={<DonateProducts/>} exact/>
+        <Route path="/buyproducts" element={<BuyProducts/>} exact/>
+        </Routes>
     </div>
   );
+ 
 }
 
 export default DonorsMainPage;

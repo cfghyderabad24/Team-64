@@ -1,5 +1,7 @@
 const Admin = require('../models/Admin');
 const User = require('../models/User');
+const Products = require('../models/Products');
+const Schedules = require('../models/Schedules');
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
 
 

@@ -41,5 +41,28 @@ const loginUser = async (req, res) => {
     }
 };
 
+const getmaindashboard = async (req, res) => {
+    try {
+        const input = req.body;
+        const user = await User.findOne({ username: input.username });
+        
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        } else {
+            const dashboard = user.dashboard;
+            const count = dashboard.reduce((total, item) => {
+                const singleCount = item.name_location.split(',').length;
+                return total + singleCount;
+            }, 0);
+            
+            console.log("Count is", count);
+            res.status(200).json({ count });
+        }
+    } catch (err) {
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
 
 module.exports = { createUser,loginUser };
