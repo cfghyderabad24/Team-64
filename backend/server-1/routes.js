@@ -8,7 +8,8 @@ router.post('/userlogin', require('./controllers/UserController').loginUser);
 router.post('/dashboardcount', require('./controllers/UserController').getmaindashboard);
 router.post('/buyproduct', require('./controllers/UserController').buyProduct);
 router.post('/donateproduct', require('./controllers/UserController').donateProduct);
-
+router.get('/getallorders', require('./controllers/UserController').getAllOrders);
+router.get('/getalldonations', require('./controllers/UserController').getAllDonations);
 
 //admin routes
 router.post('/adminlogin', require('./controllers/AdminController').adminLogin);

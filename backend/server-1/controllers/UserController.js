@@ -1,4 +1,5 @@
 const User = require('../models/User');
+import { get } from './../../server-2/node_modules/mongodb/src/utils';
 const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
@@ -154,6 +155,71 @@ const donateProduct = async (req, res) => {
     }
 };
 
+//displaying the total number of donations donar has done
+
+const getAllDonations = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        
+        jwt.verify(token, jwtSecret);
+
+        const decoded = jwtDecode(token);
+        const username = decoded.username;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        const donations = await Donations.find({ user: user._id });
+        res.status(200).send({ donations });
+    } catch (err) {
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+const getAllOrders = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        
+        jwt.verify(token, jwtSecret);
+
+        const decoded = jwtDecode(token);
+        const username = decoded.username;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        const orders = await Orders.find({ user: user._id });
+        res.status(200).send({ orders });
+
+    } catch (err) {
+
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+
+    }
+};
+
+//to get only one specif Donation details
+const donationDetails = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const donation = await Donations.findById(id);
+        if(!donation){
+            return res.status(404).send("Donation not found");
+        }
+        res.status(200).send({donation});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
 
 
-module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct };
+module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct, getAllDonations, getAllOrders, donationDetails};
