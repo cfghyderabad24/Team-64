@@ -3,8 +3,9 @@ const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
 const Products = require('../models/Products');
-const {jwtSecret} = process.env.JWT_SECRET;
-
+ const jwtSecret = process.env.JWT_SECRET;
+//const jwtSecret = "secret_token_123";
+const jwt = require('jsonwebtoken');
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
 
 const createUser = async (req, res) => {
@@ -88,8 +89,8 @@ const buyProduct = async (req, res) => {
             return res.status(401).json({ error: 'User not found' });
         }
 
-        const { price, pads, cups } = req.body;
-        if (!price || pads == null || cups == null) {
+        const { price, pads, cups, member } = req.body;
+        if (!price) {
             return res.status(400).json({ error: 'Invalid input data' });
         }
 
@@ -97,7 +98,8 @@ const buyProduct = async (req, res) => {
             user: user._id,
             price,
             pads,
-            cups
+            cups,
+            member
         });
         await order.save();
 
