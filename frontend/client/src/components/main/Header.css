@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background: #030027;
+    padding: 1rem 8rem;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Monoton', cursive;
+}
+
+.navbar .navbar-brand:hover {
+    color: #caac00;
+}
+
+ul li {
+    margin: 0px 10px;
+}
+
+#navbarSupportedContent>ul>li:nth-child(n)>a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0 0.8rem;
+    cursor: pointer;
+}
+
+#navbarSupportedContent>ul>li:nth-child(n)>a:hover {
+    color: #caac00;
+}
+
+.navbar-toggler:hover {
+    background: rgb(22, 138, 113);
+}
+
+.grow {
+    transition: all 0.3s;
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
+
+/* Media queries for navbar */
+@media (max-width: 768px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+    .navbar-nav .nav-item {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}

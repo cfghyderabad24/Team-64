@@ -33,23 +33,24 @@ export default function Registration() {
         }
       }
   return (
-    <div className='max-w-[500px] mx-auto mt-5'>
-    <div className='w-full max-w-[500px] max-h-[570px] shadow-xl flex flex-col p-4 my-4 rounded-lg mt-[30px]'>
-     <h1 className='text-2xl text-center font-bold my-7'>Registeration</h1>
+    <div className=''>
+      <h1>hello</h1>
+    <div className=''>
+     <h1 className=''>Registeration</h1>
       {
         message ? <h4 align="center">{message}</h4> : <h4 align="center">{error}</h4>
       }
-      <form onSubmit={handleSubmit} className='flex flex-col'>
+      <form onSubmit={handleSubmit} className=''>
         <label >Name</label>
-        <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className='p-2 my-2 border border-gray-300 rounded-md'/>
+        <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className='p-2 '/>
         <label >Email</label>
-        <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} className='p-2 my-2 border border-gray-300 rounded-md'/>
+        <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} className='p-2 '/>
         <label >Username</label>
-        <input type="text" name="username" id="username" value={formData.username} onChange={handleChange} className='p-2 my-2 border border-gray-300 rounded-md'/>
+        <input type="text" name="username" id="username" value={formData.username} onChange={handleChange} className='p-2 '/>
         <label >Password</label>
-        <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} className='p-2 my-2 border border-gray-300 rounded-md'/>
-        <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-5'>Register</button>
-        <Link to="/userlogin"   className='p-4 my-2'>Already have an account?</Link>
+        <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} className='p-2 '/>
+        <button type='submit' className=''>Register</button>
+        <Link to="/userlogin"   className='p-4 '>Already have an account?</Link>
       </form>
     </div>
   </div>
