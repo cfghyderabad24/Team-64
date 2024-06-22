@@ -15,6 +15,10 @@ const donationsSchema = new mongoose.Schema({
     cups:{
         type:Number,
         required:true
+    },
+    member:{
+        type: Number,
+        required: true
     }
 });
 

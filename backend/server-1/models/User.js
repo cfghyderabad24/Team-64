@@ -26,22 +26,8 @@ const userSchema = new mongoose.Schema({
         default: "user"
     },
     orders: [{
-        price: {
-            type: String,
-            required: true
-        },
-        quantity: {
-            type: Number,
-            required: true
-        },
-        pads: {
-            type: Number,
-            required: true
-        },
-        cups: {
-            type: Number,
-            required: true
-        }
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Orders'
     }],
     donations: [{
         type : mongoose.Schema.Types.ObjectId,

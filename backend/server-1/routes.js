@@ -4,6 +4,10 @@ const router = express.Router();
 //user routes
 router.post('/registeration', require('./controllers/UserController').createUser);
 router.post('/userlogin', require('./controllers/UserController').loginUser);
+//dashboard changes and buying and selling of products
+router.post('/dashboardcount', require('./controllers/UserController').getmaindashboard);
+router.post('/buyproduct', require('./controllers/UserController').buyProduct);
+
 
 //admin routes
 router.post('/adminlogin', require('./controllers/AdminController').adminLogin);
