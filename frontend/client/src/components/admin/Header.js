@@ -60,7 +60,7 @@ export default function Header() {
                             
                         </li>
                         <li>
-                        <button className='' onClick={handleLogOut}> Sign Out </button></li>
+                        <button className='' style={{'text-decoration':'none'}} onClick={handleLogOut}> Sign Out </button></li>
                            <li>
                            <Link to="/donors-page" style={{'text-decoration':'none'}}>Donors Page</Link></li>
                     </ul>

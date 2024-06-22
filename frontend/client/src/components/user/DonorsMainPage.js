@@ -12,8 +12,8 @@ function DonorsMainPage() {
         <div className="col-md-4 mb-3">
           <div className="card shadow-sm">
             <div className="card-body">
-              <button className="btn btn-primary btn-lg w-100">Buy Products
-              <Link to="/buy-products" className='p-4'>Buy Products</Link>
+              <button className="btn btn-primary btn-lg w-100">
+              <Link to="/buy-products" className='p-4 text-light' style={{'text-decoration':'none'}}>Buy Products</Link>
               </button>
             </div>
           </div>
@@ -22,7 +22,7 @@ function DonorsMainPage() {
           <div className="card shadow-sm">
             <div className="card-body">
               <button className="btn btn-success btn-lg w-100">
-              <Link to="/donate-products" className='p-4'>Donate Products</Link>
+              <Link to="/donate-products" className='p-4 text-light' style={{'text-decoration':'none'}}>Donate Products</Link>
               </button>
             </div>
           </div>
@@ -31,7 +31,7 @@ function DonorsMainPage() {
           <div className="card shadow-sm">
             <div className="card-body">
               <button className="btn btn-warning btn-lg w-100">
-              <Link to="/donate-fr-child" className='p-4'>Donate For A Child</Link>
+              <Link to="/donate-fr-child" className='p-4 text-light' style={{'text-decoration':'none'}}>Donate For A Child</Link>
               </button>
             </div>
           </div>

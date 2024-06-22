@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link ,Routes, Route, useNavigate } from 'react-router-dom'
 import UserHome from './UserHome'
+import DonorsMainPage from './DonorsMainPage'
 
 
 export default function Header() {
@@ -54,8 +55,9 @@ export default function Header() {
                            
                             
                         </li>
-                        <li>
-                        <button className='' onClick={handleLogOut}> Sign Out </button></li>
+                        <li >
+                <Link to="/" onClick={handleLogOut} className="" style={{ textDecoration: 'none' }}>Sign Out</Link>
+              </li>
                            <li>
                            <Link to="/donors-page" style={{'text-decoration':'none'}}>Donors Page</Link></li>
 
@@ -68,6 +70,7 @@ export default function Header() {
         <Routes>
             <Route path="/" element={<UserHome/>} exact/>
             <Route path="/userhome" element={<UserHome/>} exact/>
+            <Route path="/donors-page" element={<DonorsMainPage/>} exact/>
 
         </Routes>
         
