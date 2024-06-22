@@ -5,22 +5,32 @@ const schedulesApp = exp.Router();
 
 const dummyObj = [
   {
-    title: "Event1",
-    date: "20-06-2024",
+    title: "MeninMenstruation",
+    date: "June 15, 2024",
     description:
-      "This was the best event of all time! This was the best event of all time! This was the best event of all time! This was the best event of all time!",
+      "MeninMenstruation is a social media campaign that aims to break the stigma surrounding",
   },
   {
-    title: "Event1",
-    date: "20-06-2024",
+    title: "kusheecup",
+    date: "December 16, 2023",
     description:
-      "This was the best event of all time! This was the best event of all time! This was the best event of all time! This was the best event of all time!",
+      "A reflection of strength and unity as these remarkable women proudly hold the menstrual cups donated through our collaboration with Kushee Cups @kusheecup.",
   },
   {
-    title: "Event1",
-    date: "20-06-2024",
+    title: "HormonalHarmony",
+    date: "September 30, 2023",
     description:
-      "This was the best event of all time! This was the best event of all time! This was the best event of all time! This was the best event of all time!",
+      "Despite being one of the most common conditions in the world, PCOS is often misdiagnosed. As this PCOS awareness month draws to a close, we would like to emphasize that the advocacy of the disease everyday matters a lot!",
+  },
+  {
+    title: "Activepcos",
+    date: "September 29, 2023",
+    description:
+      "One of the simplest ways to combat PCOS is through physical activity, practicing these simple asanas regularly can be a great start to incorporate lifestyle changes that can have a huge impact on your hormone health.",
+  },
+  {
+    title: "ProjectE3",
+    date: "October 13, 2022",
   },
 ];
 

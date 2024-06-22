@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import "../App.css";
-
 function Event({ item }) {
   return (
     <div className="event-card">
