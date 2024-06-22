@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import MainNavBar from "./components/main/MainNavBar";
 import AdminNavBar from "./components/admin/AdminNavBar";
 import UserNavBar from "./components/user/UserNavBar";
+import Products from "./components/Products/Products";
 
 function App() {
   const [role, setRole] = useState(null);
