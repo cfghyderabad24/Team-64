@@ -1,0 +1,53 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background-color: #f0f0f0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.card.expanded {
+  transform: scale(1.05);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin: 0 0 8px;
+}
+
+.card-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.card-details.show {
+  max-height: 200px; /* Adjust based on content size */
+}
+
+.notification-item {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.notification-item:hover {
+  text-decoration: underline;
+}

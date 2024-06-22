@@ -1,76 +1,149 @@
-import React from 'react'
-import { Link ,Routes, Route, useNavigate } from 'react-router-dom'
-import UserHome from './UserHome'
-
-
-export default function Header() {
-    const navigate = useNavigate()
-    const handleLogOut = () => {
-        localStorage.removeItem('token')
-        navigate('/')
-        window.location.reload()
-        }
+import React from "react";
+import { Link, Routes, Route } from "react-router-dom";
+import Home from "../main/Home";
+import ContactUs from "../main/ContactUs";
+import DonorsMainPage from "../user/DonorsMainPage";
+import { useNavigate } from "react-router-dom";
+import DonateForChild from "./DonateForChild";
+import DonateProducts from "./DonateProducts";
+import BuyProducts from "./BuyProducts";
+export default function Header({ onLogin }) {
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+    window.location.reload();
+  };
   return (
     <div>
-       <nav className="navbar sticky-top navbar-expand-lg navbar-dark">
-            <div className="container">
-              <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s' style={{'width':'100px'}}></img>
-                <a className="navbar-brand grow" href="/">Good Universe</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+      <nav className="navbar sticky-top navbar-expand-lg navbar-dark">
+        <div className="container">
+          {/* <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s' style={{'width':'100px'}}></img> */}
+          <a className="navbar-brand grow" href="/">
+            Good Universe
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mx-auto">
-                        <li className="nav-item">
-                        <Link to="/home" className='p-4' style={{'text-decoration':'none'}}>Home</Link>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownLost" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                What We Do
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdownLost">
-                                <a className="dropdown-item" href="/">Climate change</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="/">Health & Well Being</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="/">Gender Equality</a>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">Products</a>
-                        </li>
-                        <li className="nav-item">
-                        <Link to="/contact" style={{'text-decoration':'none'}} className='p-4'>Contact</Link>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownLost" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Profile
-                            </a>
-                           
-                            
-                        </li>
-                        <li>
-                        <button className='' onClick={handleLogOut}> Sign Out </button></li>
-                           <li>
-                           <Link to="/donors-page" style={{'text-decoration':'none'}}>Donors Page</Link></li>
-
-                    </ul>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mx-auto">
+              <li className="nav-item">
+                <Link
+                  to="/home"
+                  className="p-4"
+                  style={{ "text-decoration": "none" }}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownLost"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  What We Do
+                </a>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownLost"
+                >
+                  <a className="dropdown-item" href="/">
+                    Climate change
+                  </a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item" href="/">
+                    Health & Well Being
+                  </a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item" href="/">
+                    Gender Equality
+                  </a>
                 </div>
-            </div>
-        </nav>
-        <hr className=''/>
-
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Products
+                </a>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/contact"
+                  style={{ "text-decoration": "none" }}
+                  className="p-4"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownLost"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Profile
+                </a>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownLost"
+                >
+                  <a className="dropdown-item" href="/">
+                    Dashboard
+                  </a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item" href="/">
+                    Logout
+                  </a>
+                </div>
+              </li>
+              <li>
+                <Link
+                  to="/"
+                  onClick={handleLogOut}
+                  className=""
+                  style={{ textDecoration: "none" }}
+                >
+                  Sign Out
+                </Link>
+              </li>
+              <li>
+                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
+                  Donors Page
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <hr className="border-b-2" />
         <Routes>
-            <Route path="/" element={<UserHome/>} exact/>
-            <Route path="/userhome" element={<UserHome/>} exact/>
-
+          <Route path="/" element={<Home />} exact />
+          <Route path="/home" element={<Home />} exact />
+          <Route path="/contact" element={<ContactUs />} exact />
+          <Route path="/donors-page" element={<DonorsMainPage />} exact />
+          <Route path="/donate-for-child" element={<DonateForChild />} exact />
+          <Route path="/donate-products" element={<DonateProducts />} exact />
+          <Route path="/buy-products" element={<BuyProducts />} exact />
         </Routes>
-        
+      </div>
     </div>
-  )
+  );
 }
