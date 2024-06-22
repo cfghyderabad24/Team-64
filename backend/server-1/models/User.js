@@ -44,26 +44,19 @@ const userSchema = new mongoose.Schema({
         }
     }],
     donations: [{
-        amount: {
-            type: Number,
-            required: true
-        },
-        location: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Donations'
+    }],
+    dashboard: [{
+        order_id: {
             type: String,
             required: true
         },
-        pads: {
-            type: Number,
+
+        name_location: [{
+            type: String,
             required: true
-        },
-        cups: {
-            type: Number,
-            required: true
-        },
-        member: {
-            type: Number,
-            required: true
-        }
+        }]
     }]
 });
 
