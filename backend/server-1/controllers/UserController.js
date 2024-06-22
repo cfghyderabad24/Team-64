@@ -1,10 +1,10 @@
 const User = require('../models/User');
-import { get } from './../../server-2/node_modules/mongodb/src/utils';
 const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
 const Products = require('../models/Products');
 const {jwtSecret} = process.env.JWT_SECRET;
+const jwt = require('jsonwebtoken');
 
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
 
