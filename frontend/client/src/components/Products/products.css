@@ -37,6 +37,36 @@
   color: #333;
 }
 
-.products-cont {
+.card-quantity {
+  font-size: 1.2em;
+  color: #555;
+  margin: 8px 0;
+}
+
+.quantity-buttons {
   display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.quantity-button {
+  background-color: #007a0a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quantity-button:hover {
+  background-color: #218838;
+}
+
+.products-cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
