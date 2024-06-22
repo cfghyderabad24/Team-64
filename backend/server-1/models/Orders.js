@@ -10,12 +10,16 @@ const ordersSchema = new mongoose.Schema({
     },
     pads:{
         type:Number,
-        required:true
+        default:0
     },
     cups:{
         type:Number,
-        required:true
+       default:0
     },
+    member:{
+        type:Number,
+        default:0
+    }
 });
 
 const Orders = mongoose.model("Orders",ordersSchema);
