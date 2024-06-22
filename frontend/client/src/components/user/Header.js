@@ -1,7 +1,7 @@
 import React from 'react'
-import logo from '../../assets/mainlogo.jpg'
 import { Link ,Routes, Route, useNavigate } from 'react-router-dom'
 import UserHome from './UserHome'
+
 
 export default function Header() {
     const navigate = useNavigate()
@@ -12,24 +12,23 @@ export default function Header() {
         }
   return (
     <div>
-        <div className='flex justify-between items-center h-18 max-w-[1240px] mx-auto px-4'>
-            <img className='max-w-[50px]' src={logo} alt="logo" />
+        <div className=''>
             <div>
-                <ul className=' flex'>
+                <ul className='mt-3'>
                     <Link to="/" className='p-4' >Home</Link>
-                    <Link to="/" className='p-4'>view vehivles</Link>
-                    <Link to="/" className='p-4'>view spare parts</Link>
+                    <Link to="/donor-page" className='p-4'>Donors main page</Link>
                 </ul>
             </div>
             <div>
-            <button className='border border-red-600 text-red-600 font-bold py-2 px-4 rounded hover:bg-red-600 hover:text-white' onClick={handleLogOut}> Sign Out </button>
+            <button className='' onClick={handleLogOut}> Sign Out </button>
             </div>
         </div>
-        <hr className='border-b-2'/>
+        <hr className=''/>
 
         <Routes>
             <Route path="/" element={<UserHome/>} exact/>
             <Route path="/userhome" element={<UserHome/>} exact/>
+
         </Routes>
         
     </div>

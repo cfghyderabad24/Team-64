@@ -2,17 +2,18 @@ import { Button } from 'bootstrap'
 import React from 'react'
 
 function DonorsMainPage() {
+
   return (
     <div>
         <div className='row'>
         <div className='column col-1 card'>
-        <Button className="btn ">Buy Products</Button>
+        <button className="btn ">Buy Products</button>
         </div>
         <div className='column col-1 card'>
-        <Button className="btn ">Donate Products</Button>
+        <button className="btn ">Donate Products</button>
         </div>
         <div className='column col-1 card'>
-        <Button className="btn ">Donate For A Child</Button>
+        <button className="btn ">Donate For A Child</button>
         </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ app.use(express.json())
 app.use("",router) 
  
 
-const port = process.env.PORT || 2024
+const port = 2024
 app.listen(port,()=> {
     console.log(`Server is running at port ${port}`)
 })

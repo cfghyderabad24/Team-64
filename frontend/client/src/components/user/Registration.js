@@ -22,7 +22,7 @@ export default function Registration() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-          const response = await axios.post('http://localhost:1234/registeration',formData)
+          const response = await axios.post('http://localhost:2024/registeration',formData)
           console.log(response.data.message)
           if(response.data!=null){
             setMessage(response.data)

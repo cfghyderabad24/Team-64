@@ -6,6 +6,7 @@ import UserLogin from '../user/Login';
 import AdminLogin from '../admin/AdminLogin';
 import Registration from '../user/Registration';
 import Contact from './ContactUs';
+import DonorsMainPage from '../user/DonorsMainPage';
 export default function Header({ onLogin }) {
   return (
     <div>
@@ -57,6 +58,8 @@ export default function Header({ onLogin }) {
                         </li>
                         <li>
                            <Link to="/userlogin" style={{'text-decoration':'none'}}> Sign In </Link></li>
+                           <li>
+                           <Link to="/donors-page" style={{'text-decoration':'none'}}>Donors Page</Link></li>
                     </ul>
                 </div>
             </div>
@@ -70,6 +73,8 @@ export default function Header({ onLogin }) {
         <Route path="/userlogin" element={<UserLogin onLogin={onLogin} />} exact />
         <Route path="/adminlogin" element={<AdminLogin onLogin={onLogin} />} exact />
         <Route path="/registration" element={<Registration />} exact />
+        <Route path="/donors-page" element={<DonorsMainPage/>} exact />
+
       </Routes>
     </div>
     </div>

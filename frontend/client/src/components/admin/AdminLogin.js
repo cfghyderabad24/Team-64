@@ -16,7 +16,7 @@ export default function AdminLogin({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:1234/adminlogin', formData);
+      const response = await axios.post('http://localhost:2024/adminlogin', formData);
       if (response.data && response.data.token) {
         onLogin(response.data.token);
         navigate('/adminhome');

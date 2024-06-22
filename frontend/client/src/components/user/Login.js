@@ -16,7 +16,7 @@ export default function UserLogin({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:1234/userlogin', formData);
+      const response = await axios.post('http://localhost:2024/userlogin', formData);
       if (response.data && response.data.token) {
         onLogin(response.data.token);
         navigate('/userhome');
@@ -77,7 +77,7 @@ export default function UserLogin({ onLogin }) {
                 <div className="mt-4 text-center">
                   <button className="button-18 mb-2" type="submit" role="button">Login</button>
                   <br/>
-                  <Link to="/registeration" className='p-4 my-2'>Register now?</Link>
+                  <Link to="/registration" className='p-4 my-2'>Register now?</Link>
                 </div>
               </form>
             </div>
