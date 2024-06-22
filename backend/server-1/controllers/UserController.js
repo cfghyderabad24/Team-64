@@ -221,5 +221,42 @@ const donationDetails = async (req, res) => {
     }
 };
 
+//to get the specific order details for invoice
 
-module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct, getAllDonations, getAllOrders, donationDetails};
+const orderInvoice = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const order = await Orders.findById(id);
+        if(!order){
+            return res.status(404).send("Order not found");
+        }
+        res.status(200).send({order});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+//to get the specific donation details
+
+const donationInvoice = async (req, res) => {
+    try{
+
+        const id = req.params.id;
+        const donation = await Donations.findById(id);
+        if(!donation){
+            return res.status(404).send("Donation not found");
+        }
+        res.status(200).send({donation});
+    }
+    catch(err){
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};  
+
+
+
+module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct, getAllDonations, getAllOrders, donationDetails, orderInvoice, donationInvoice};

@@ -10,6 +10,9 @@ router.post('/buyproduct', require('./controllers/UserController').buyProduct);
 router.post('/donateproduct', require('./controllers/UserController').donateProduct);
 router.get('/getallorders', require('./controllers/UserController').getAllOrders);
 router.get('/getalldonations', require('./controllers/UserController').getAllDonations);
+router.get('/donationDetails/:id', require('./controllers/UserController').donationDetails);
+router.get('/getallusers/:id', require('./controllers/UserController').getAllUsers);
+router.get('/getallproducts/:id', require('./controllers/UserController').getAllProducts);
 
 //admin routes
 router.post('/adminlogin', require('./controllers/AdminController').adminLogin);
