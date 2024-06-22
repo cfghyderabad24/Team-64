@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import MainNavBar from "./components/main/MainNavBar";
 import AdminNavBar from "./components/admin/AdminNavBar";
 import UserNavBar from "./components/user/UserNavBar";
-import Events from "./components/Events/Events";
+import Dashboard from "./components/Dash/Dashboard";
 
 function App() {
   const [role, setRole] = useState(null);
@@ -43,7 +43,7 @@ function App() {
           <MainNavBar onLogin={onLogin} />
         )}
       </Router>
-      <Events />
+      <Dashboard />
     </div>
   );
 }
