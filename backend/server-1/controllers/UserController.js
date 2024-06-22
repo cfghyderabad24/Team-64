@@ -3,7 +3,7 @@ const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
 const Products = require('../models/Products');
-const {jwtSecret} = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET;
 const jwt = require('jsonwebtoken');
 
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
