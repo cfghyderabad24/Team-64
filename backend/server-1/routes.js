@@ -7,6 +7,7 @@ router.post('/userlogin', require('./controllers/UserController').loginUser);
 //dashboard changes and buying and selling of products
 router.post('/dashboardcount', require('./controllers/UserController').getmaindashboard);
 router.post('/buyproduct', require('./controllers/UserController').buyProduct);
+router.post('/donateproduct', require('./controllers/UserController').donateProduct);
 
 
 //admin routes

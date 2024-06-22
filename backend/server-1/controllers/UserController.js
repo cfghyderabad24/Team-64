@@ -112,5 +112,48 @@ const buyProduct = async (req, res) => {
     }
 };
 
+//donating the product for the others
 
-module.exports = { createUser,loginUser, getmaindashboard, buyProduct};
+const donateProduct = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        
+        jwt.verify(token, jwtSecret);
+
+        const decoded = jwtDecode(token);
+        const username = decoded.username;
+
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        const { amount, location, pads, cups, member  } = req.body;
+        if (pads == null || cups == null || member == null || !location || !amount) {
+            return res.status(400).json({ error: 'Invalid input data' });
+        }
+
+        const donation = new Donations({
+            user: user._id,
+            amount,
+            location,
+            pads,
+            cups,
+            member
+        });
+        await donation.save();
+
+        // Update user's donations array
+        user.donations.push(donation._id);
+        await user.save();
+
+        res.status(201).send("Donation placed successfully");
+    } catch (err) {
+        console.log("Error is", err.message);
+        res.status(500).send(err.message);
+    }
+};
+
+
+
+module.exports = { createUser,loginUser, getmaindashboard, buyProduct , donateProduct };
