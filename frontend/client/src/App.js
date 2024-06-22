@@ -43,7 +43,6 @@ function App() {
           <MainNavBar onLogin={onLogin} />
         )}
       </Router>
-      <Products />
     </div>
   );
 }
