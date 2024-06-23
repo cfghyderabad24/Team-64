@@ -20,10 +20,10 @@ export default function Header({ onLogin }) {
     <div>
       <nav className="navbar sticky-top navbar-expand-lg navbar-dark">
         <div className="container">
-          {/* <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s' style={{'width':'100px'}}></img> */}
-          <a className="navbar-brand grow" href="/">
-            Good Universe
-          </a>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXu5h3InXUDGTEkvdTl9X756shfsYMicPyhQ&s"
+            style={{ width: "100px" }}
+          ></img>
           <button
             className="navbar-toggler"
             type="button"
@@ -118,7 +118,6 @@ export default function Header({ onLogin }) {
                   Sign Out
                 </Link>
               </li>
-              
             </ul>
           </div>
         </div>
@@ -134,7 +133,7 @@ export default function Header({ onLogin }) {
           <Route path="/donate-products" element={<DonateProducts />} exact />
           <Route path="/buy-products" element={<BuyProducts />} exact />
           <Route path="/products" element={<Products />} exact />
-          <Route path="/insights" element={<Dashboard/>} exact />
+          <Route path="/insights" element={<Dashboard />} exact />
         </Routes>
       </div>
     </div>
