@@ -16,9 +16,9 @@ const App = () => {
       </header>
       <main>
         <DonorProfile />
-        <DonationStats />
-        <LiveTracker />
         <ImpactGraph />
+        <LiveTracker />
+        <DonationStats />
         <ActivityLog />
         <FeedbackForm />
       </main>

@@ -30,7 +30,7 @@ const LiveTracker = () => {
   return (
     <div className="live-tracker">
       <h2>Live Progress Tracker</h2>
-      <p>Current Location: School in Hyderabad, India</p>
+      <p>Current Location: Govt. High School in Koti, Hyderabad</p>
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progress}%` }}></div>
       </div>

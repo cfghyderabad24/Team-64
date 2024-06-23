@@ -13,7 +13,7 @@ const DonorProfile = () => {
     <div className="donor-profile">
       <h2>Donor Profile</h2>
       <p>Name: {donor.name}</p>
-      <p>Total Donations: ${donor.totalDonations}</p>
+      <p>Total Donations: ₹{donor.totalDonations}</p>
       <p>Girls Helped: {donor.girlsHelped}</p>
       <p>Carbon Footprint Reduced: {donor.carbonFootprintReduced} kg</p>
     </div>

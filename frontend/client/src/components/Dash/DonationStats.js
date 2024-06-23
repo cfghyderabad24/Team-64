@@ -9,7 +9,7 @@ const DonationStats = () => {
     <div className="donation-stats">
       <h2>Donation Statistics</h2>
       <ul>
-        <li>Total Donations: ${totalDonations}</li>
+        <li>Total Donations: ₹{totalDonations}</li>
         <li>Girls Helped: {girlsHelped}</li>
         <li>Carbon Footprint Reduced: {carbonFootprintReduced} kg</li>
       </ul>

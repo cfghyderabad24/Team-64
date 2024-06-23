@@ -16,7 +16,7 @@ const ImpactGraph = () => {
           borderWidth: 1,
           hoverBackgroundColor: "rgba(75,192,192,0.6)",
           hoverBorderColor: "rgba(75,192,192,1)",
-          data: [10, 20, 10, 40, 30, 60],
+          data: [10, 20, 10, 40, 30, 50],
         },
       ],
     };
