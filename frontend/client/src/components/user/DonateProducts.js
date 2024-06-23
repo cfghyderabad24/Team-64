@@ -94,7 +94,8 @@ const DonateProducts = () => {
             />
           </div>
         )}
-        <button type="submit" className="btn btn-primary">Place Order</button>
+        <button type="submit" className="btn btn-primary border border-dark me-5">Place Order</button>
+        <button type="clear" className="btn btn-primary border border-dark">Clear</button>
       </form>
       {message && <div className="mt-3 alert alert-info">{message}</div>}
     </div>

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 const PAD_PRICE = 600;
 const CUP_PRICE = 650;
-
 const BuyProduct = () => {
   const [pads, setPads] = useState(0);
   const [cups, setCups] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [message, setMessage] = useState('');
 
+  
   useEffect(() => {
     // Calculate the total price whenever pads or cups change
     setTotalPrice(Number(pads) * PAD_PRICE + Number(cups) * CUP_PRICE);
@@ -79,7 +80,8 @@ const BuyProduct = () => {
             readOnly
           />
         </div>
-        <button type="submit" className="btn btn-primary">Place Order</button>
+        <button type="submit" className="btn btn-primary border border-dark me-5">Place Order</button>
+        <button type="clear" className="btn btn-primary border border-dark">Clear</button>
       </form>
       {message && <div className="mt-3 alert alert-info">{message}</div>}
     </div>
