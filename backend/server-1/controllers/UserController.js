@@ -1,9 +1,10 @@
-const User = require('../models/User');
+const User = require('../models/User'); 
+const TotalMoneyCount = require('../models/TotalMoneyCount'); 
 const  {jwtDecode} = require('jwt-decode');
 const Donations = require('../models/Donations');
 const Orders = require('../models/Orders');
 const Products = require('../models/Products');
- const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET;
 
 const jwt = require('jsonwebtoken');
 const {jwtAuthMiddleware , generateToken} = require('../configuration/jwtconfig');
@@ -75,10 +76,11 @@ const getmaindashboard = async (req, res) => {
 //-----------------------------------------------------------------
 //buying and donation of the user 
 
+
 const buyProduct = async (req, res) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        
+
         jwt.verify(token, jwtSecret);
 
         const decoded = jwtDecode(token);
@@ -89,7 +91,7 @@ const buyProduct = async (req, res) => {
             return res.status(401).json({ error: 'User not found' });
         }
 
-        const { price, pads, cups} = req.body;
+        const { price, pads, cups } = req.body;
         if (!price) {
             return res.status(400).json({ error: 'Invalid input data' });
         }
@@ -106,19 +108,31 @@ const buyProduct = async (req, res) => {
         user.orders.push(order._id);
         await user.save();
 
-        res.status(201).send({order});
+        // Add 10% of the order price to TotalMoneyCount
+        const percentageToAdd = price * 0.1;
+        const totalMoneyCount = await TotalMoneyCount.findOne();
+        if (totalMoneyCount) {
+            totalMoneyCount.totalMoney += percentageToAdd;
+            await totalMoneyCount.save();
+        } else {
+            const newTotalMoneyCount = new TotalMoneyCount({ totalMoney: percentageToAdd });
+            await newTotalMoneyCount.save();
+        }
+
+        res.status(201).send({ order });
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
     }
 };
 
+
 //donating the product for the others
 
 const donateProduct = async (req, res) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        
+
         jwt.verify(token, jwtSecret);
 
         const decoded = jwtDecode(token);
@@ -129,7 +143,7 @@ const donateProduct = async (req, res) => {
             return res.status(401).json({ error: 'User not found' });
         }
 
-        const { price, location, pads, cups, member  } = req.body;
+        const { price, location, pads, cups, member } = req.body;
         if (!price) {
             return res.status(400).json({ error: 'Invalid input data' });
         }
@@ -148,7 +162,17 @@ const donateProduct = async (req, res) => {
         user.donations.push(donation._id);
         await user.save();
 
-        res.status(201).send({donation});
+        // Add 100% of the donation amount to TotalMoneyCount
+        const totalMoneyCount = await TotalMoneyCount.findOne();
+        if (totalMoneyCount) {
+            totalMoneyCount.totalMoney += price;
+            await totalMoneyCount.save();
+        } else {
+            const newTotalMoneyCount = new TotalMoneyCount({ totalMoney: price });
+            await newTotalMoneyCount.save();
+        }
+
+        res.status(201).send({ donation });
     } catch (err) {
         console.log("Error is", err.message);
         res.status(500).send(err.message);
