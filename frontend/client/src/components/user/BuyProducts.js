@@ -7,7 +7,6 @@ const CUP_PRICE = 650;
 const BuyProduct = () => {
   const [pads, setPads] = useState(0);
   const [cups, setCups] = useState(0);
-  const [member, setMember] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [message, setMessage] = useState('');
 
@@ -24,13 +23,21 @@ const BuyProduct = () => {
 
       const response = await axios.post(
         'http://localhost:2024/buyproduct',
-        { price: totalPrice, pads, cups, member },
+        { price: totalPrice, pads, cups },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      setMessage(response.data.message || "Order placed successfully");
+      const responseData = response.data;
+      const responseMessage = typeof responseData === 'object' && 'message' in responseData
+        ? responseData.message
+        : "Order placed successfully";
+
+      setMessage(responseMessage);
     } catch (error) {
-      setMessage(`Error: ${error.response ? error.response.data.error : error.message}`);
+      const errorMessage = error.response && error.response.data && error.response.data.error
+        ? error.response.data.error
+        : error.message;
+      setMessage(`Error: ${errorMessage}`);
     }
   };
 
@@ -58,18 +65,6 @@ const BuyProduct = () => {
             id="cups"
             value={cups}
             onChange={(e) => setCups(e.target.value)}
-            min="0"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="member" className="form-label">Member</label>
-          <input
-            type="number"
-            className="form-control"
-            id="member"
-            value={member}
-            onChange={(e) => setMember(e.target.value)}
             min="0"
             required
           />

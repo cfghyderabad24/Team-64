@@ -89,7 +89,7 @@ const buyProduct = async (req, res) => {
             return res.status(401).json({ error: 'User not found' });
         }
 
-        const { price, pads, cups, member } = req.body;
+        const { price, pads, cups} = req.body;
         if (!price) {
             return res.status(400).json({ error: 'Invalid input data' });
         }
@@ -98,8 +98,7 @@ const buyProduct = async (req, res) => {
             user: user._id,
             price,
             pads,
-            cups,
-            member
+            cups
         });
         await order.save();
 
@@ -130,14 +129,14 @@ const donateProduct = async (req, res) => {
             return res.status(401).json({ error: 'User not found' });
         }
 
-        const { amount, location, pads, cups, member  } = req.body;
-        if (!amount) {
+        const { price, location, pads, cups, member  } = req.body;
+        if (!price) {
             return res.status(400).json({ error: 'Invalid input data' });
         }
 
         const donation = new Donations({
             user: user._id,
-            amount,
+            price,
             location,
             pads,
             cups,

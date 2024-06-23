@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import DonateForChild from "./DonateForChild";
 import DonateProducts from "./DonateProducts";
 import BuyProducts from "./BuyProducts";
+import Products from "../Products/Products";
 export default function Header({ onLogin }) {
   const navigate = useNavigate();
   const handleLogOut = () => {
@@ -46,17 +47,6 @@ export default function Header({ onLogin }) {
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownLost"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  What We Do
-                </a>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownLost"
@@ -75,7 +65,7 @@ export default function Header({ onLogin }) {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/products">
                   Products
                 </a>
               </li>
@@ -142,6 +132,7 @@ export default function Header({ onLogin }) {
           <Route path="/donate-for-child" element={<DonateForChild />} exact />
           <Route path="/donate-products" element={<DonateProducts />} exact />
           <Route path="/buy-products" element={<BuyProducts />} exact />
+          <Route path="/products" element={<Products />} exact />
         </Routes>
       </div>
     </div>

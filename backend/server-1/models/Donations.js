@@ -10,19 +10,21 @@ const donationsSchema = new mongoose.Schema({
     },
     location:{
         type:String,
-        required:true
+        default:"random location"
     },
     pads:{
         type:Number,
-        required:true
+        default:0
+
     },
     cups:{
         type:Number,
-        required:true
+        default:0
+
     },
     member:{
         type: Number,
-        required: true
+        default:0
     }
 });
 

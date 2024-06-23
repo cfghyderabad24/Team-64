@@ -15,10 +15,6 @@ const ordersSchema = new mongoose.Schema({
     cups:{
         type:Number,
        default:0
-    },
-    member:{
-        type:Number,
-        default:0
     }
 });
 

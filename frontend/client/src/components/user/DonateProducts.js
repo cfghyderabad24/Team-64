@@ -3,11 +3,13 @@ import axios from 'axios';
 
 const PAD_PRICE = 600;
 const CUP_PRICE = 650;
+const MIN_EDITABLE_PRICE = 50000; // Minimum price to enable location input
 
 const DonateProducts = () => {
   const [pads, setPads] = useState(0);
   const [cups, setCups] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [location, setLocation] = useState('random location');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -19,17 +21,25 @@ const DonateProducts = () => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem('token'); 
+      const token = localStorage.getItem('token');
 
       const response = await axios.post(
         'http://localhost:2024/donateproduct',
-        { price: totalPrice, pads, cups ,token},
+        { price: totalPrice, pads, cups, member: 0, location },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      setMessage(response.data);
+      const responseData = response.data;
+      const responseMessage = typeof responseData === 'object' && 'message' in responseData
+        ? responseData.message
+        : "Order placed successfully";
+
+      setMessage(responseMessage);
     } catch (error) {
-      setMessage(`Error: ${error.response ? error.response.data.error : error.message}`);
+      const errorMessage = error.response && error.response.data && error.response.data.error
+        ? error.response.data.error
+        : error.message;
+      setMessage(`Error: ${errorMessage}`);
     }
   };
 
@@ -71,6 +81,19 @@ const DonateProducts = () => {
             readOnly
           />
         </div>
+        {totalPrice > MIN_EDITABLE_PRICE && (
+          <div className="mb-3">
+            <label htmlFor="location" className="form-label">Location</label>
+            <input
+              type="text"
+              className="form-control"
+              id="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              required
+            />
+          </div>
+        )}
         <button type="submit" className="btn btn-primary">Place Order</button>
       </form>
       {message && <div className="mt-3 alert alert-info">{message}</div>}
