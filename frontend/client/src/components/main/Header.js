@@ -7,6 +7,7 @@ import AdminLogin from "../admin/AdminLogin";
 import Registration from "../user/Registration";
 import Contact from "./ContactUs";
 import DonorsMainPage from "../user/DonorsMainPage";
+import Products from "../Products/Products";
 export default function Header({ onLogin }) {
   return (
     <div>
@@ -40,17 +41,6 @@ export default function Header({ onLogin }) {
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownLost"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  What We Do
-                </a>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownLost"
@@ -69,7 +59,7 @@ export default function Header({ onLogin }) {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/products">
                   Products
                 </a>
               </li>
@@ -140,6 +130,7 @@ export default function Header({ onLogin }) {
           />
           <Route path="/registration" element={<Registration />} exact />
           <Route path="/donors-page" element={<DonorsMainPage />} exact />
+          <Route path="/products" element={<Products/>} exact />
         </Routes>
       </div>
     </div>

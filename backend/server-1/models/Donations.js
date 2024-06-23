@@ -4,7 +4,7 @@ const donationsSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    amount:{
+    price:{
         type:Number,
         required:true
     },

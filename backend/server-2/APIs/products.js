@@ -5,18 +5,18 @@ const productsApp = exp.Router();
 
 const dummyObj = [
   {
-    title: "Product1",
-    price: 450,
+    title: "Pads",
+    price: 600,
     description: "A sustainable product useful for all!",
   },
   {
-    title: "Product1",
-    price: 450,
+    title: "Cups",
+    price: 650,
     description: "A sustainable product useful for all!",
   },
   {
-    title: "Product1",
-    price: 450,
+    title: "Membership for a girl",
+    price: 900,
     description: "A sustainable product useful for all!",
   },
 ];
