@@ -3,10 +3,11 @@ import DonationStats from "./DonationStats";
 import LiveTracker from "./LiveTracker";
 import ImpactGraph from "./ImpactGraph";
 import DonorProfile from "./DonorProfile";
-import DonationForm from "./DonationForm";
 import ActivityLog from "./ActivityLog";
 import FeedbackForm from "./FeedbackForm";
 import "./Dash.css";
+import LocationOrdersGraph from "./LocationOrdersGraph";
+import NewGraph from "./NewGraph";
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
         <DonorProfile />
         <ImpactGraph />
         <LiveTracker />
+        <LocationOrdersGraph />
+        <NewGraph />
         <DonationStats />
         <ActivityLog />
         <FeedbackForm />

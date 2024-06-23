@@ -1,23 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
-}
-
-body {
-  background-image: url("https://backcheckgroup.com/wp-content/uploads/2016/01/Volunteer-background-Screening.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 .logo {
   max-width: 80px;
   height: auto;
@@ -101,18 +83,6 @@ body {
   color: #1d2120;
 }
 
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: #1d2120;
-}
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #1d2120;
-}
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #1d2120;
-}
 .dropdown {
   max-width: 300px;
   padding: 20px;
