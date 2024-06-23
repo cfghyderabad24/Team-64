@@ -8,6 +8,7 @@ import DonateForChild from "./DonateForChild";
 import DonateProducts from "./DonateProducts";
 import BuyProducts from "./BuyProducts";
 import Products from "../Products/Products";
+import Dashboard from "../Dash/Dashboard";
 export default function Header({ onLogin }) {
   const navigate = useNavigate();
   const handleLogOut = () => {
@@ -39,7 +40,7 @@ export default function Header({ onLogin }) {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
                 <Link
-                  to="/home"
+                  to="/userhome"
                   className="p-4"
                   style={{ "text-decoration": "none" }}
                 >
@@ -81,14 +82,13 @@ export default function Header({ onLogin }) {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/insights"
                   id="navbarDropdownLost"
                   role="button"
-                  data-bs-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Profile
+                  Dashboard
                 </a>
                 <div
                   className="dropdown-menu"
@@ -104,6 +104,11 @@ export default function Header({ onLogin }) {
                 </div>
               </li>
               <li>
+                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
+                  Donors Page
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/"
                   onClick={handleLogOut}
@@ -113,11 +118,7 @@ export default function Header({ onLogin }) {
                   Sign Out
                 </Link>
               </li>
-              <li>
-                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
-                  Donors Page
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -126,13 +127,14 @@ export default function Header({ onLogin }) {
         <hr className="border-b-2" />
         <Routes>
           <Route path="/" element={<Home />} exact />
-          <Route path="/home" element={<Home />} exact />
+          <Route path="/userhome" element={<Home />} exact />
           <Route path="/contact" element={<ContactUs />} exact />
           <Route path="/donors-page" element={<DonorsMainPage />} exact />
           <Route path="/donate-for-child" element={<DonateForChild />} exact />
           <Route path="/donate-products" element={<DonateProducts />} exact />
           <Route path="/buy-products" element={<BuyProducts />} exact />
           <Route path="/products" element={<Products />} exact />
+          <Route path="/insights" element={<Dashboard/>} exact />
         </Routes>
       </div>
     </div>

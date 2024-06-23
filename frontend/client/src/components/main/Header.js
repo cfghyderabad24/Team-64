@@ -59,7 +59,7 @@ export default function Header({ onLogin }) {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/products">
+                <a className="nav-link" href="/">
                   Products
                 </a>
               </li>
@@ -98,16 +98,17 @@ export default function Header({ onLogin }) {
                 </div>
               </li>
               <li>
+                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
+                  Donors Page
+                </Link>
+              </li>
+              <li>
                 <Link to="/userlogin" style={{ "text-decoration": "none" }}>
                   {" "}
                   Sign In{" "}
                 </Link>
               </li>
-              <li>
-                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
-                  Donors Page
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>

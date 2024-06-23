@@ -1,6 +1,7 @@
 import React from 'react'
 import './UserHome.css'
 import Carousal from '../main/Carosal'
+import Footer from '../user/Footer'
 export default function UserHome() {
   return (
     <div>
@@ -64,6 +65,7 @@ export default function UserHome() {
         </div>
       </div>
     </div>
+    <Footer/>
 
     </div>
   )

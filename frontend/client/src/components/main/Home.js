@@ -4,6 +4,7 @@ import Carosal from './Carosal'
 import ruralimg from '../../assets/Rural-help.jpg'
 import pw1 from '../../assets/pw-1.jpg'
 import donor from '../../assets/donor.webp'
+import Footer from './Footer'
 export default function Home() {
   return (
     <div className="service " style={{'backgroundColor':'#030027'}}>
@@ -65,7 +66,9 @@ export default function Home() {
           <p>Understanding menstruation contributes to improved emotional well-being by reducing anxiety and fear associated with menstrual symptoms. It also fosters empathy and support among peers, educators, and healthcare providers, creating a supportive environment for individuals experiencing menstruation.</p>
         </div>
       </div>
+      <Footer/>
     </div>
+    
 
 
   )
