@@ -20,15 +20,15 @@ const BuyProduct = () => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem('token'); 
+      const token = localStorage.getItem('token');
 
       const response = await axios.post(
         'http://localhost:2024/buyproduct',
-        { price: totalPrice, pads, cups ,member,token},
+        { price: totalPrice, pads, cups, member },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      setMessage(response.data);
+      setMessage(response.data.message || "Order placed successfully");
     } catch (error) {
       setMessage(`Error: ${error.response ? error.response.data.error : error.message}`);
     }
@@ -58,6 +58,18 @@ const BuyProduct = () => {
             id="cups"
             value={cups}
             onChange={(e) => setCups(e.target.value)}
+            min="0"
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="member" className="form-label">Member</label>
+          <input
+            type="number"
+            className="form-control"
+            id="member"
+            value={member}
+            onChange={(e) => setMember(e.target.value)}
             min="0"
             required
           />
