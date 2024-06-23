@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Dashboard from "../Dash/Dashboard";
 
 function UserProfile() {
   return (
-    <div>UserProfile</div>
-  )
+    <div>
+      <Dashboard />
+    </div>
+  );
 }
 
-export default UserProfile
+export default UserProfile;

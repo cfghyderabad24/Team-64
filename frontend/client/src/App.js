@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import MainNavBar from "./components/main/MainNavBar";
 import AdminNavBar from "./components/admin/AdminNavBar";
 import UserNavBar from "./components/user/UserNavBar";
-import Dashboard from "./components/Dash/Dashboard";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   const [role, setRole] = useState(null);
@@ -42,6 +42,9 @@ function App() {
         ) : (
           <MainNavBar onLogin={onLogin} />
         )}
+        <Routes>
+          <Route path="/dash" element={<UserProfile />} />
+        </Routes>
       </Router>
     </div>
   );
