@@ -32,7 +32,7 @@ function Products() {
           return <Product item={i} onUpdate={handleUpdate} />;
         })}
       </div>
-      <h2>Your Subtotal: ₹{price}</h2>
+      {/* <h2>Your Subtotal: ₹{price}</h2> */}
     </>
   );
 }

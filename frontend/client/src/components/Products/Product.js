@@ -29,7 +29,7 @@ function Product({ item, onUpdate }) {
         <h2 className="card-title">{item.title}</h2>
         <p className="card-price">₹{item.price}.00</p>
         <p className="card-description">{item.description}</p>
-        <p className="card-quantity">Quantity: {quantity}</p>
+        {/* <p className="card-quantity">Quantity: {quantity}</p>
         <div className="quantity-buttons">
           <button className="quantity-button" onClick={handleDecreaseQuantity}>
             -
@@ -37,7 +37,7 @@ function Product({ item, onUpdate }) {
           <button className="quantity-button" onClick={handleAddQuantity}>
             +
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

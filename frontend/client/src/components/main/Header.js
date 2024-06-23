@@ -131,6 +131,7 @@ export default function Header({ onLogin }) {
           <Route path="/registration" element={<Registration />} exact />
           <Route path="/donors-page" element={<DonorsMainPage />} exact />
           <Route path="/products" element={<Products />} exact />
+         
         </Routes>
       </div>
     </div>
