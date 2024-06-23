@@ -40,87 +40,16 @@ export default function Header() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownLost"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  What We Do
-                </a>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownLost"
-                >
-                  <a className="dropdown-item" href="/">
-                    Climate change
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="/">
-                    Health & Well Being
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="/">
-                    Gender Equality
-                  </a>
-                </div>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Products
-                </a>
-              </li>
               <li className="nav-item">
                 <Link
-                  to="/contact"
-                  style={{ "text-decoration": "none" }}
+                  to="/adminhome"
                   className="p-4"
+                  style={{ "text-decoration": "none" }}
                 >
-                  Contact
+                  Add Events
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownLost"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Profile
-                </a>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownLost"
-                >
-                  <a className="dropdown-item" href="/">
-                    Dashboard
-                  </a>
-                  <div className="dropdown-divider"></div>
-                  <button onClick={handleLogOut}>Signout</button>
-                </div>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  onClick={handleLogOut}
-                  className="nav-link p-4"
-                  style={{ textDecoration: "none" }}
-                >
-                  Sign Out
-                </Link>
-              </li>
-              <li>
-                <Link to="/donors-page" style={{ "text-decoration": "none" }}>
-                  Donors Page
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./volunteer.css";
 
-const Volunteer = () => {
+function Volunteer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
@@ -84,6 +84,6 @@ const Volunteer = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Volunteer;
